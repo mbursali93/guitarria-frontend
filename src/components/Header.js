@@ -148,7 +148,7 @@ export default function Header() {
     useEffect(()=> {
         const searchProducts = async () => {
             try {
-                const res = await axios.get(`http://localhost:9000/api/products/?search=${search}&limit=5`)
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/?search=${search}&limit=5`)
                 setProducts([...res.data.products])
                 
                 

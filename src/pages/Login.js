@@ -83,14 +83,14 @@ const Login = () => {
     const loginHandler = async (e) => {
         e.preventDefault();
        try {
-        const res = await axios.post("http://localhost:9000/api/auth/login", {username,password},{ withCredentials: true })
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, {username,password},{ withCredentials: true })
 
         localStorage.setItem("user", res.data.username)
         window.location.href = "/";
 
      } catch(e) {
         setError("Invalid username or password")
-        console.log(e.message)
+        
        }
     
     }

@@ -78,7 +78,7 @@ const Register = () => {
     const handleRegister = async (e) => {
         e.preventDefault()
         try {
-            await axios.post("http://localhost:9000/api/auth/register", { username,email,password }, {withCredentials:true})
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, { username,email,password }, {withCredentials:true})
             navigate("/login")
         } catch(e) {
             

@@ -73,7 +73,7 @@ export default function CustomizedMenus() {
   const [setToken] = state.token
 
   const handleLogout = async () => {
-    await axios.get("http://localhost:9000/api/auth/logout",{ withCredentials: true })
+    await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/logout`,{ withCredentials: true })
     localStorage.removeItem("user")
     window.location.href = "/"
     setToken("")

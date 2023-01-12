@@ -14,7 +14,7 @@ export const DataProvider = ({children}) => {
     if(user) {
         const refreshToken = async () => {
             try {
-                const res = await axios.get("http://localhost:9000/api/auth/refresh_token", {withCredentials:true})
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/refresh_token`, {withCredentials:true})
                 setToken(res.data);
 
                 setTimeout(()=> {refreshToken()}, 1000*60*10)

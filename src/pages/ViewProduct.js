@@ -170,7 +170,7 @@ const ViewProduct = () => {
     useEffect(()=> {
         const getProduct = async () => {
             try {
-                const res = await axios.get(`http://localhost:9000/api/products/${id}`)
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/${id}`)
                 setProduct(res.data)
 
             }catch{

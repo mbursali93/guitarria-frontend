@@ -133,7 +133,7 @@ const Cart = () => {
     })
 
     setCart([...cart])
-    await axios.patch("http://localhost:9000/api/users/cart", {cart}, {headers: {Authorization:token}})
+    await axios.patch(`${process.env.REACT_APP_API_URL}/api/users/cart`, {cart}, {headers: {Authorization:token}})
     
    }
 
@@ -145,7 +145,7 @@ const Cart = () => {
     })
 
     setCart([...cart])
-    await axios.patch("http://localhost:9000/api/users/cart", {cart}, {headers: {Authorization:token}})
+    await axios.patch(`${process.env.REACT_APP_API_URL}/api/users/cart`, {cart}, {headers: {Authorization:token}})
     
    }
 
@@ -154,7 +154,7 @@ const Cart = () => {
     cart.splice(itemIndex,1)
 
     setCart([...cart])
-    await axios.patch("http://localhost:9000/api/users/cart", {cart}, {headers: {Authorization:token}})
+    await axios.patch(`${process.env.REACT_APP_API_URL}/api/users/cart`, {cart}, {headers: {Authorization:token}})
     
    }
 

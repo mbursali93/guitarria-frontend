@@ -108,7 +108,7 @@ const Products = () => {
       const getProducts = async () => {
         try {
           const res = await axios.get(
-            `http://localhost:9000/api/products/?page=${page}&sort=${sort}&filter=${filter}&limit=${limit}`
+            `${process.env.REACT_APP_API_URL}/api/products/?page=${page}&sort=${sort}&filter=${filter}&limit=${limit}`
             )
           setProducts(res.data.products);
           let maxPageNumber = res.data.pageNumber / limit;

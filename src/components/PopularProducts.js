@@ -53,7 +53,7 @@ const PopularProducts = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get(`http://localhost:9000/api/products/?sort=popular&limit=4`)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/?sort=popular&limit=4`)
         setProducts(res.data.products);
                 
       } catch(e) {

@@ -27,7 +27,7 @@ export default function PayButton() {
    
     const handleClick = async () => {
         try {
-            const res = await axios.post("http://localhost:9000/api/stripe/checkout", {
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/stripe/checkout`, {
                 user_id: user._id,
                 cart,
 
@@ -35,13 +35,13 @@ export default function PayButton() {
 
             if(res.data.url) {
                 setCart([])
-                await axios.patch("http://localhost:9000/api/users/cart", {cart} , {headers: {Authorization:token}})
+                await axios.patch(`${process.env.REACT_APP_API_URL}/api/users/cart`, {cart} , {headers: {Authorization:token}})
                 window.location.href = res.data.url
                 
             }
 
         } catch(e) {
-            console.log(e.message)
+            
         }
     }
 

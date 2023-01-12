@@ -18,12 +18,12 @@ export default function UserAPI (token) {
         if(token) {
             const getUser = async () => {
                 try {
-                    const res = await axios.get("http://localhost:9000/api/users", {headers: {Authorization: token}}, { withCredentials: true })
+                    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/users`, {headers: {Authorization: token}}, { withCredentials: true })
                     setIsLogged(true);
                     setUser(res.data)
                   setCart(res.data.cart)
                 } catch(e) {
-                    console.log(e.message)
+                    
                 }
             }
             getUser();
@@ -34,12 +34,12 @@ export default function UserAPI (token) {
         if(token) {
             const getHistory = async () => {
                 try {
-                    const res = await axios.get("http://localhost:9000/api/orders/", {headers: {Authorization: token}}, { withCredentials: true })
+                    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/orders/`, {headers: {Authorization: token}}, { withCredentials: true })
                     
                     setHistory(res.data)
                   
                 } catch(e) {
-                    console.log(e.message)
+                    
                 }
             }
             getHistory();
@@ -61,12 +61,12 @@ export default function UserAPI (token) {
                 const indexItem = helperCart.findIndex(e=> e.product._id === item.product._id && e.itemColor === item.itemColor)
                 helperCart[indexItem].quantity += item.quantity
                 setCart([...helperCart])
-                await axios.patch("http://localhost:9000/api/users/cart", {cart}, {headers: {Authorization:token}})
+                await axios.patch(`${process.env.REACT_APP_API_URL}/api/users/cart`, {cart}, {headers: {Authorization:token}})
                 
             } else {
                 helperCart.push(item)
                 setCart([...helperCart])
-                await axios.patch("http://localhost:9000/api/users/cart", {cart}, {headers: {Authorization:token}})
+                await axios.patch(`${process.env.REACT_APP_API_URL}/api/users/cart`, {cart}, {headers: {Authorization:token}})
             }
           
            

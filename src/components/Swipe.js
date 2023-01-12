@@ -67,7 +67,7 @@ const Swipe = () => {
           </SwiperSlide>
           <SwiperSlide>
           <Photo src="https://i.im.ge/2022/09/16/1FHW8J.mike-giles-IiwYeihxC58-unsplash.jpg"/>
-         <ImgText>Play for the people you love.. </ImgText> <CreditText> Photo by Mike Giles </CreditText> 
+         <ImgText>Play for the people you love... </ImgText> <CreditText> Photo by Mike Giles </CreditText> 
          </SwiperSlide>
         
         
